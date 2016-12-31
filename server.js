@@ -2,8 +2,21 @@ var express = require("express");
 var axios = require("axios");
 var app = express();
 
-app.get('/', function(req, res){
-    axios.get('https://www.googleapis.com/customsearch/v1?key=AIzaSyBu2AyIh8IlY3AhTHHhWLBYVgfsiRkr3KQ&q=cat&searchType=image&cx=010064230611557154673:oe8ajuocquc')
+app.get('/api/imagesearch/:query', function(req, res){
+    
+    var query = req.params.query,
+        endpoint = 'https://www.googleapis.com/customsearch/v1?',
+        key = 'AIzaSyBu2AyIh8IlY3AhTHHhWLBYVgfsiRkr3KQ',
+        cx = '010064230611557154673:oe8ajuocquc',
+        searchType = 'image';
+    
+    if(!isNaN(req.query.offset)) {
+        var offset = req.query.offset;    
+    }
+    
+    var url = endpoint + 'key=' + key + '&q=' + query + '&searchType=' + searchType + '&cx=' + cx + ( offset ? '&start=' + offset : '' );
+    
+    axios.get(url)
         .then(function(response){
             var imageResultsRaw = response.data.items;
             var imageResults = [];
