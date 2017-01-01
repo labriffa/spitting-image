@@ -1,0 +1,31 @@
+html
+    head
+        title Shortcut URL Microservice
+        link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css")
+        link(rel="stylesheet", href="../css/style.css")
+        link(href="https://fonts.googleapis.com/css?family=Raleway", rel="stylesheet")
+    div(class="container")
+        h1 Spitting Image - Image Search Abstraction Layer
+        hr
+        ul(class="list-group")
+            li(class="list-group-item") Provides image URLs, alt text and page urls for a set of images relating to a given search string.
+            li(class="list-group-item") You can paginate through the responses by adding a ?offset=2 parameter to the URL.
+            li(class="list-group-item") You can also get a list of the most recently submitted search strings.
+        
+        h2 Example
+        div(class="well")
+            h4 Search Query <i class="glyphicon glyphicon-chevron-right"></i> Images
+            hr
+            a(class="example-link" href="https://spitting-image.herokuapp.com/api/imagesearch/freecodecamp") https://spitting-image.herokuapp.com/api/imagesearch/freecodecamp
+            hr
+            h4 Returns
+            hr
+            p(class="example-return") [{ <br><span class="key">"url"</span>: "https://avatars0.githubusercontent.com/u/9892522?v=3&s=200",<br> <span class="key">"snippet"</span>: "Free Code Camp",<br> <span class="key">"thumbnail"</span>: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDt-65rSRLA4wlR_Qg4ZrKN3OhITsgQ6Pcg7f3kJhg5oqv3ouJ1A5lU1U",<br> <span class="key">"context"</span>: "https://github.com/FreeCodeCamp"<br> },<br>...<br>]
+            
+            h4 Search Query with Pagination <i class="glyphicon glyphicon-chevron-right"></i> Images
+            hr
+            a(class="example-link" href="https://spitting-image.herokuapp.com/api/imagesearch/freecodecamp?offset=2") https://spitting-image.herokuapp.com/api/imagesearch/freecodecamp?offset=2
+            hr
+            h4 Returns
+            hr
+            p(class="example-return") [{ <br><span class="key">"url"</span>: ""http://www.i-programmer.info/images/stories/News/2016/April/B/freecodecamp1.jpg"",<br> <span class="key">"snippet"</span>: "Note that Jquery comes before ...",<br> <span class="key">"thumbnail"</span>: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSESe7xmBOcXwBoyG0FLY4VFOCZ31yzu1xg6K5nWUEliKZ6X8_z2YUbyXQ",<br> <span class="key">"context"</span>: "http://www.i-programmer.info/news/150-training-a-education/9698-freecodecamp-not-just-a-bootcamp.html"<br> },<br>...<br>]    
