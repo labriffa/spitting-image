@@ -22,7 +22,7 @@ app.get('/api/imagesearch/:query', function(req, res){
     
     // check if our offset is actually a number
     if(!isNaN(req.query.offset)) {
-        var offset = (+req.query.offset) * 10;    
+        var offset = req.query.offset;    
     }
     
     var url = endpoint + 'key=' + key + '&q=' + query + '&searchType=' + searchType + '&cx=' + cx + ( offset ? '&start=' + offset : '' );
